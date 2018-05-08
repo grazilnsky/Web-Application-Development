@@ -1,0 +1,21 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="index.jsp">Register</a></li>
+        <li><a href="#">Contact</a></li>
+            <%if (request.getSession().getAttribute("user_session") != null) {%>
+        <li><a href="LogoutController">Logout</a></li> 
+            <%}%>
+            <%if (request.getSession().getAttribute("user_session") == null) {%> 
+        <li><a href="LoginView.jsp">Login</a></li> 
+            <%}%>
+            <%if (request.getSession().getAttribute("user_session") != null && request.getSession().getAttribute("user_session").equals("admin")) {%> 
+        <li><a href="AddProducts.jsp">Add Products</a></li> 
+            <%}%>
+        <li><a href="ProductView.jsp">Products</a></li>
+        <li><a href="PurchaseController">History</a></li>
+        <li><a href="CartController">Shopping Cart</a></li>
+    </ul>
+</nav>
